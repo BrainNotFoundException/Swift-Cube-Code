@@ -21,6 +21,10 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        //Debug.log(Input.acceleration.x);
+        //Debug.Log(Input.acceleration.x);
+
         //rb.AddForce(0, 0, 2000* Time.deltaTime); //TIME.DELTATIME EVENS OUT THE MOVEMENT SPEED FOR FASTER AND SLOWER COMPUTERS!
         if (Input.GetKey("d") || Input.GetKey(KeyCode.RightArrow))
         {
@@ -41,6 +45,15 @@ public class PlayerMovement : MonoBehaviour
                 rb.AddForce(-sideForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
             }
         }
+
+         if(Input.acceleration.x > 0.2f)
+         {
+             rb.AddForce(sideForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
+         }
+         if(Input.acceleration.x < -0.2f)
+         {
+             rb.AddForce(-sideForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
+         }
 
     }
 

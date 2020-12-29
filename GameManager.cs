@@ -8,13 +8,13 @@ public class GameManager : MonoBehaviour
     /*// Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }*/
 
     public bool levelOver = false;
@@ -59,11 +59,22 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    public static float getDifficultyPercent() {
+    /*public static float getDifficultyPercent() {
 
         float difficultyPercent = Mathf.Clamp01(Time.timeSinceLevelLoad/secondsToMaxDifficulty);
-        
+
         return difficultyPercent;
+    }*/
+
+    public void pauseNUnpauseGame()
+    {
+        if(Time.timeScale == 1)
+        {
+            Time.timeScale = 0;
+        }else
+        {
+            Time.timeScale = 1;
+        }
     }
 
 }
